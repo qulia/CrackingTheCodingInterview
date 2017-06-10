@@ -1,0 +1,36 @@
+﻿Test Name:	GetMaxWordsRectangleTest5
+Test Outcome:	Failed
+Result Message:	
+Test method Question_17_25_WordRectangle.Tests.SolutionTests.GetMaxWordsRectangleTest5 threw exception: 
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+Result StandardOutput:	
+Debug Trace:
+Input:
+
+p
+r
+abc
+fqm
+zlhcl
+no
+zsmx
+def
+ei
+z
+pyc
+d
+ghi
+qj
+o
+h
+olnd
+zjzvm
+ddbv
+murt
+adg
+x
+h
+fjqmv
+beh
+cfi
+
