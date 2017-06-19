@@ -9,98 +9,12 @@ namespace Question_07_06_Jigsaw
 {
     public class JigsawPuzzle
     {
-        public enum EdgeType
-        {
-            Inner = 1,
-            Outer,
-            Flat
-        }
-
         public enum EdgeRestriction
         {
             None = 0,
             Inner,
             Outer,
             Flat
-        }
-
-        public class Edge
-        {
-            public Edge(EdgeType type)
-            {
-                Type = type;
-            }
-
-            public EdgeType Type
-            {
-                get;
-                set;
-            }
-        }
-
-        public class Piece
-        {
-            // Always ordered in Left, Top, Bottom, Right 
-            protected List<Edge> orderedEdges;
-
-            public Piece()
-            {               
-                orderedEdges = new List<Edge>();
-            }
-
-            public Piece(int data, List<Edge> edges)
-            {
-                if (edges.Count != 4) throw new ArgumentException();
-                orderedEdges = edges;
-                this.LeftEdge = orderedEdges[0];
-                this.TopEdge = orderedEdges[1];
-                this.RightEdge = orderedEdges[2];
-                this.BottomEdge = orderedEdges[3];
-
-                Data = data;
-
-            }
-
-            public int Data
-            {
-                get;
-                protected set;
-            }
-
-            public Edge LeftEdge
-            {
-                get;
-                protected set;
-            }
-
-            public Edge TopEdge
-            {
-                get;
-                protected set;
-            }
-
-            public Edge RightEdge
-            {
-                get;
-                protected set;
-            }
-
-            public Edge BottomEdge
-            {
-                get;
-                protected set;
-            }
-
-            public bool Rotate()
-            {
-                var temp = BottomEdge;
-                BottomEdge = RightEdge;
-                RightEdge = TopEdge;
-                TopEdge = LeftEdge;
-                LeftEdge = temp;
-
-                return true;
-            }
         }
 
         public class VirtualPiece : Piece
@@ -153,9 +67,7 @@ namespace Question_07_06_Jigsaw
                 List<EdgeRestriction> edgeRestriction = GetEdgeRestrictions(surroundingPieces);
                 
                 Piece piece = GetPiece(edgeRestriction, surroundingPieces);
-                if (piece == null) throw new Exception("Could not find a solution");
-          
-                solution[0, i]  = piece;
+                solution[0, i]  = piece ?? throw new Exception("Could not find a solution");
                 Pieces.Remove(piece);
             }
 
@@ -168,9 +80,7 @@ namespace Question_07_06_Jigsaw
                 List<EdgeRestriction> edgeRestriction = GetEdgeRestrictions(surroundingPieces);
 
                 Piece piece = GetPiece(edgeRestriction, surroundingPieces);
-                if (piece == null) throw new Exception("Could not find a solution");
-
-                solution[i, numberOfColumns - 1] = piece;
+                solution[i, numberOfColumns - 1] = piece ?? throw new Exception("Could not find a solution");
                 Pieces.Remove(piece);
             }
 
@@ -183,9 +93,7 @@ namespace Question_07_06_Jigsaw
                 List<EdgeRestriction> edgeRestriction = GetEdgeRestrictions(surroundingPieces);
 
                 Piece piece = GetPiece(edgeRestriction, surroundingPieces);
-                if (piece == null) throw new Exception("Could not find a solution");
-
-                solution[numberOfRows - 1, i] = piece;
+                solution[numberOfRows - 1, i] = piece ?? throw new Exception("Could not find a solution");
                 Pieces.Remove(piece);
             }
 
@@ -198,9 +106,7 @@ namespace Question_07_06_Jigsaw
                 List<EdgeRestriction> edgeRestriction = GetEdgeRestrictions(surroundingPieces);
 
                 Piece piece = GetPiece(edgeRestriction, surroundingPieces);
-                if (piece == null) throw new Exception("Could not find a solution");
-
-                solution[i, 0] = piece;
+                solution[i, 0] = piece ?? throw new Exception("Could not find a solution");
                 Pieces.Remove(piece);
             }
 
@@ -215,9 +121,7 @@ namespace Question_07_06_Jigsaw
                     List<EdgeRestriction> edgeRestriction = GetEdgeRestrictions(surroundingPieces);
 
                     Piece piece = GetPiece(edgeRestriction, surroundingPieces);
-                    if (piece == null) throw new Exception("Could not find a solution");
-
-                    solution[i, j] = piece;
+                    solution[i, j] = piece ?? throw new Exception("Could not find a solution");
                     Pieces.Remove(piece);
                 }
             }

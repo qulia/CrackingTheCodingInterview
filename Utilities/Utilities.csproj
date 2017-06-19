@@ -51,12 +51,6 @@
     <Compile Include="StringUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Question_08_08_PermutationsWithDuplicates\Question_08_08_PermutationsWithDuplicates.csproj">
-      <Project>{d8ce6a6e-1cef-46d7-a4b3-30b807b53a67}</Project>
-      <Name>Question_08_08_PermutationsWithDuplicates</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
