@@ -39,7 +39,7 @@ namespace Question_07_09_CircularArray
 
         public void shift(int shiftBy)
         {
-            headIndex = (headIndex + shiftBy) % length;
+            headIndex = (length - (shiftBy % length)) % length;
         }
 
         private int getActualPosition(int index)

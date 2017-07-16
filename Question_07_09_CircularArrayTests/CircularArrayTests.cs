@@ -29,6 +29,7 @@ namespace Question_07_09_CircularArray.Tests
                 Trace.Write(string.Format("{0} ", i));
             }
 
+            Assert.AreEqual(0, intCircularArray[2]);
             Trace.WriteLine("");
 
             intCircularArray.shift(13);
